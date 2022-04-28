@@ -1,12 +1,9 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
-const { post } = require('./user-routes');
 
 // get all users
 router.get('/', (req, res) => {
-  console.log('===================');
   Post.findAll({
-    // Query configuration
     attributes: ['id', 'post_url', 'title', 'created_at'],
     order: [['created_at', 'DESC']],
     include: [
@@ -74,12 +71,12 @@ router.put('/:id', (req, res) => {
       }
     }
   )
-    .then(data => {
-      if (!data) {
+    .then(dbPostData => {
+      if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      res.json(data);
+      res.json(dbPostData);
     })
     .catch(err => {
       console.log(err);
@@ -93,12 +90,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(data => {
-      if (!data) {
+    .then(dbPostData => {
+      if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      res.json(data);
+      res.json(dbPostData);
     })
     .catch(err => {
       console.log(err);
