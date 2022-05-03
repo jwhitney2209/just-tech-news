@@ -10,7 +10,7 @@ async function upvoteClickHandler(event) {
       post_id: id
     }),
     headers: {
-      'Content-type': 'application/json'
+      'Content-Type': 'application/json'
     }
   });
 
@@ -21,6 +21,4 @@ async function upvoteClickHandler(event) {
   }
 }
 
-document
-  .querySelector('.upvote-btn')
-  .addEventListener('click', upvoteClickHandler);
+document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);
