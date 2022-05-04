@@ -11,11 +11,7 @@ router.get('/', (req, res) => {
     });
 });
 
-<<<<<<<< HEAD:controllers/api/comment-routes.js
 router.post('/', withAuth, (req, res) => {
-========
-router.post('/', (req, res) => {
->>>>>>>> ed5a08cbebbf7b222872893fc48b62d77e70de3d:routes/api/comment-routes.js
   // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
   Comment.create({
     comment_text: req.body.comment_text,
